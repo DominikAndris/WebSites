@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f6f1e7"/>
+  <rect x="0" y="0" width="400" height="300" fill="none" stroke="#14131a" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- article list -->
+  <g>
+    <rect x="50" y="46" width="60" height="60" rx="10" fill="#ff5d3a"/>
+    <rect x="122" y="52" width="200" height="14" rx="7" fill="#14131a"/>
+    <rect x="122" y="74" width="150" height="10" rx="5" fill="#6b6f76"/>
+    <rect x="122" y="92" width="90" height="10" rx="5" fill="#6b6f76"/>
+
+    <rect x="50" y="126" width="60" height="60" rx="10" fill="#5b7cff"/>
+    <rect x="122" y="132" width="200" height="14" rx="7" fill="#14131a"/>
+    <rect x="122" y="154" width="160" height="10" rx="5" fill="#6b6f76"/>
+    <rect x="122" y="172" width="100" height="10" rx="5" fill="#6b6f76"/>
+
+    <rect x="50" y="206" width="60" height="60" rx="10" fill="#d6f24c"/>
+    <rect x="122" y="212" width="200" height="14" rx="7" fill="#14131a"/>
+    <rect x="122" y="234" width="140" height="10" rx="5" fill="#6b6f76"/>
+    <rect x="122" y="252" width="80" height="10" rx="5" fill="#6b6f76"/>
+  </g>
+</svg>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dominik — Weby, které vypadají skvěle a fungují</title>
+<meta name="description" content="Dominik — freelance webdesign a vývoj na míru. Webdesign, UI/UX, Webflow a webové aplikace, které přivádí zákazníky." />
+<link rel="icon" href="images/icon-dev.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f6f1e7;
+    --paper: #fdfbf7;
+    --ink: #14131a;
+    --muted: #6b6f76;
+    --lime: #d6f24c;
+    --lime-dark: #9fd12f;
+    --coral: #ff5d3a;
+    --pink: #ffb8c6;
+    --blue: #5b7cff;
+    --radius: 24px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .logo { font-family: 'Sora', sans-serif; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  section { position: relative; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 76px;
+    background: rgba(246,241,231,0.85); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(20,19,26,0.06);
+  }
+  .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
+  .logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 0.92rem; font-weight: 600; text-decoration: none; color: var(--ink); opacity: 0.75; transition: opacity .2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--ink); color: var(--cream); border: none;
+    padding: 12px 24px; border-radius: 50px; font-size: 0.88rem;
+    font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block;
+    transition: transform .2s, background .2s;
+  }
+  .nav-cta:hover { background: var(--coral); transform: translateY(-2px); }
+  .nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; cursor: pointer; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero {
+    padding: 168px 0 100px;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--paper); border: 1px solid rgba(20,19,26,0.08);
+    padding: 8px 16px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .eyebrow::before { content: '●'; color: var(--lime-dark); font-size: 0.7rem; }
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+    font-weight: 800; line-height: 1.06; letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+  .hero h1 .hl-lime { background: linear-gradient(180deg, transparent 62%, var(--lime) 62%); }
+  .hero h1 .hl-coral { color: var(--coral); }
+  .hero p.lead { font-size: 1.08rem; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 16px; margin-bottom: 56px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink); color: var(--cream); border: none;
+    padding: 17px 32px; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-primary:hover { background: var(--coral); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,93,58,0.3); }
+  .btn-secondary {
+    background: transparent; color: var(--ink); border: 2px solid rgba(20,19,26,0.15);
+    padding: 15px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+  .stack-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .stack-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .stack-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .stack-pill {
+    background: var(--paper); border: 1px solid rgba(20,19,26,0.08);
+    padding: 7px 16px; border-radius: 50px; font-size: 0.82rem; font-weight: 600;
+  }
+
+  .hero-visual { position: relative; }
+  .hero-visual img { width: 100%; }
+
+  /* ── SERVICES ────────────────────────────────────── */
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-tag { font-size: 0.8rem; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
+  .section-title { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -1px; line-height: 1.15; }
+  .section-title.center { text-align: center; margin: 0 auto; }
+  .section-sub { font-size: 1rem; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+
+  .services-section { padding: 90px 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .service-card {
+    background: var(--paper); border: 1px solid rgba(20,19,26,0.06);
+    border-radius: var(--radius); padding: 32px 26px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(20,19,26,0.08); }
+  .service-card img { width: 56px; height: 56px; margin-bottom: 22px; border-radius: 16px; }
+  .service-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+  .service-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── PORTFOLIO ───────────────────────────────────── */
+  .portfolio-section { padding: 90px 0; background: var(--paper); }
+  .portfolio-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; gap: 24px; flex-wrap: wrap; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .project-card { border-radius: var(--radius); overflow: hidden; background: var(--cream); text-decoration: none; color: inherit; display: block; }
+  .project-thumb { aspect-ratio: 4/3; overflow: hidden; }
+  .project-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .project-card:hover .project-thumb img { transform: scale(1.06); }
+  .project-info { padding: 20px 4px 6px; display: flex; justify-content: space-between; align-items: center; }
+  .project-info h3 { font-size: 1.05rem; font-weight: 700; }
+  .project-tag { font-size: 0.78rem; font-weight: 700; color: var(--muted); background: rgba(20,19,26,0.06); padding: 5px 12px; border-radius: 50px; white-space: nowrap; }
+  .project-card.featured { grid-column: span 2; }
+
+  /* ── TESTIMONIALS ────────────────────────────────── */
+  .testimonials-section { padding: 90px 0; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testi-card { background: var(--paper); border: 1px solid rgba(20,19,26,0.06); border-radius: var(--radius); padding: 30px 28px; }
+  .testi-stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+  .testi-text { font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; }
+  .testi-name { font-weight: 700; font-size: 0.9rem; }
+  .testi-role { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── PRICING ─────────────────────────────────────── */
+  .pricing-section { padding: 90px 0; background: var(--ink); color: var(--cream); }
+  .pricing-section .section-tag { color: var(--lime); }
+  .pricing-section .section-sub { color: rgba(246,241,231,0.55); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
+  .price-card { background: rgba(246,241,231,0.05); border: 1px solid rgba(246,241,231,0.12); border-radius: var(--radius); padding: 36px 30px; display: flex; flex-direction: column; }
+  .price-card.popular { background: var(--lime); color: var(--ink); border-color: transparent; position: relative; }
+  .price-badge { position: absolute; top: -14px; right: 28px; background: var(--coral); color: white; font-size: 0.72rem; font-weight: 800; padding: 6px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
+  .price-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .price-amount { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+  .price-amount span { font-size: 1rem; font-weight: 600; opacity: 0.6; }
+  .price-features { list-style: none; margin-bottom: 32px; flex: 1; }
+  .price-features li { font-size: 0.88rem; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; gap: 10px; }
+  .price-card.popular .price-features li { border-bottom-color: rgba(20,19,26,0.12); }
+  .price-features li::before { content: '✓'; font-weight: 800; color: var(--lime); }
+  .price-card.popular .price-features li::before { color: var(--coral); }
+  .price-btn {
+    text-align: center; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+    text-decoration: none; border: 2px solid rgba(246,241,231,0.25); transition: all .2s;
+  }
+  .price-btn:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .price-card.popular .price-btn { border-color: rgba(20,19,26,0.2); }
+  .price-card.popular .price-btn:hover { background: var(--ink); color: var(--cream); }
+
+  /* ── CONTACT / CTA ───────────────────────────────── */
+  .contact-section { padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
+  .contact-section::before {
+    content: ''; position: absolute; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,184,198,0.5) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
+  }
+  .contact-inner { position: relative; }
+  .contact-title { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1; }
+  .contact-title .hl-coral { color: var(--coral); }
+  .contact-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .contact-links a { font-size: 0.88rem; font-weight: 600; text-decoration: none; color: var(--ink); opacity: 0.7; padding: 10px 18px; border-radius: 50px; border: 1px solid rgba(20,19,26,0.12); transition: all .2s; }
+  .contact-links a:hover { opacity: 1; border-color: var(--ink); }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer { background: var(--ink); color: var(--cream); padding: 56px 0 32px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(246,241,231,0.1); }
+  footer .logo { color: var(--cream); }
+  .footer-nav { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; }
+  .footer-nav a { font-size: 0.88rem; color: rgba(246,241,231,0.6); text-decoration: none; transition: color .2s; }
+  .footer-nav a:hover { color: var(--cream); }
+  .footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: rgba(246,241,231,0.4); }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; padding-top: 140px; }
+    .hero-visual { order: -1; max-width: 380px; margin: 0 auto 20px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .project-card.featured { grid-column: span 2; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 620px) {
+    .wrap { padding: 0 20px; }
+    nav { padding: 0 20px; }
+    .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions a { text-align: center; justify-content: center; }
+    .footer-top, .footer-bottom { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Dominik<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Domů</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Ceník</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Domluvit hovor</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero wrap" id="home">
+  <div>
+    <div class="eyebrow">Dostupný pro nové projekty</div>
+    <h1>Weby, které <span class="hl-lime">vypadají skvěle</span> a <span class="hl-coral">skutečně fungují.</span></h1>
+    <p class="lead">
+      Jsem Dominik, freelance webdesignér a vývojář. Spojuji čistý vizuální design s promyšleným vývojem — výsledkem jsou weby, které nejen dobře vypadají, ale hlavně přivádí zákazníky a posilují značku.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Domluvit konzultaci →</a>
+      <a href="#portfolio" class="btn-secondary">Zobrazit portfolio</a>
+    </div>
+    <div class="stack-row">
+      <span class="stack-label">Pracuji s</span>
+      <div class="stack-pills">
+        <span class="stack-pill">HTML/CSS</span>
+        <span class="stack-pill">JavaScript</span>
+        <span class="stack-pill">React</span>
+        <span class="stack-pill">Webflow</span>
+        <span class="stack-pill">Figma</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="images/hero-illustration.svg" alt="Ilustrace webdesignu" />
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section wrap" id="services">
+  <div class="section-head">
+    <div class="section-tag">Co dělám</div>
+    <h2 class="section-title">Komplexní služby pro váš digitální projekt</h2>
+    <p class="section-sub">Od prvního nápadu po launch — design, vývoj i strategie na jednom místě.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="images/icon-design.svg" alt="Webdesign a UI/UX" />
+      <h3>Webdesign & UI/UX</h3>
+      <p>Navrhuji moderní a intuitivní rozhraní, která uživatele provedou webem přirozeně a bez tření.</p>
+    </div>
+    <div class="service-card">
+      <img src="images/icon-dev.svg" alt="Vývoj na míru" />
+      <h3>Vývoj na míru</h3>
+      <p>Weby a webové aplikace postavené na moderních technologiích — rychlé, responzivní a snadno udržovatelné.</p>
+    </div>
+    <div class="service-card">
+      <img src="images/icon-nocode.svg" alt="Webflow a no-code" />
+      <h3>Webflow & no-code</h3>
+      <p>Rychlá realizace kvalitních webů ve Webflow pro klienty, kteří potřebují launch bez kompromisů v designu.</p>
+    </div>
+    <div class="service-card">
+      <img src="images/icon-seo.svg" alt="SEO a optimalizace" />
+      <h3>SEO & optimalizace</h3>
+      <p>Technická optimalizace a strategie, díky které vás návštěvníci skutečně najdou a zůstanou.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<!-- TODO: nahraď ukázkové projekty a náhledy (images/project-*.svg) svými skutečnými pracemi -->
+<section class="portfolio-section" id="portfolio">
+  <div class="wrap">
+    <div class="portfolio-head">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="section-tag">Vybraná práce</div>
+        <h2 class="section-title">Ukázky projektů</h2>
+      </div>
+      <p class="section-sub" style="max-width:320px;">Konceptuální ukázky stylu a přístupu — reálné projekty postupně přibývají.</p>
+    </div>
+    <div class="portfolio-grid">
+      <a href="#" class="project-card featured">
+        <div class="project-thumb"><img src="images/project-1.svg" alt="Redesign značky" /></div>
+        <div class="project-info"><h3>Redesign značky</h3><span class="project-tag">Branding</span></div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="project-thumb"><img src="images/project-2.svg" alt="E-shop nové generace" /></div>
+        <div class="project-info"><h3>E-shop nové generace</h3><span class="project-tag">E-commerce</span></div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="project-thumb"><img src="images/project-3.svg" alt="SaaS Dashboard" /></div>
+        <div class="project-info"><h3>SaaS Dashboard</h3><span class="project-tag">Web aplikace</span></div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="project-thumb"><img src="images/project-4.svg" alt="Landing page startupu" /></div>
+        <div class="project-info"><h3>Landing page startupu</h3><span class="project-tag">Marketing</span></div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="project-thumb"><img src="images/project-5.svg" alt="Osobní blog" /></div>
+        <div class="project-info"><h3>Osobní blog</h3><span class="project-tag">Content</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<!-- TODO: nahraď skutečnými referencemi od klientů -->
+<section class="testimonials-section wrap">
+  <div class="section-head" style="margin: 0 auto 56px; text-align:center;">
+    <div class="section-tag" style="text-align:center;">Reference</div>
+    <h2 class="section-title center">Co říkají klienti</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Skvělá spolupráce od začátku do konce. Web přesně odpovídá naší značce a funguje na jedničku."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#ff8a65,#ff5d3a);">JN</div>
+        <div><div class="testi-name">Jana Nováková</div><div class="testi-role">Marketing Manager</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Komunikace byla naprosto bezproblémová a výsledek předčil očekávání. Doporučuji všemi deseti."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#8fa8ff,#5b7cff);">PD</div>
+        <div><div class="testi-name">Petr Dvořák</div><div class="testi-role">Zakladatel startupu</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Profesionální přístup a pozornost k detailu. Náš nový web výrazně zvýšil počet poptávek."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#d6f24c,#9fd12f); color:#14131a;">LM</div>
+        <div><div class="testi-name">Lucie Malá</div><div class="testi-role">Majitelka e-shopu</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="section-head" style="margin: 0 auto 0; text-align:center; max-width: 560px;">
+      <div class="section-tag" style="text-align:center;">Ceník</div>
+      <h2 class="section-title center">Transparentní balíčky</h2>
+      <p class="section-sub" style="text-align:center; margin-left:auto; margin-right:auto;">Orientační ceny — finální nabídka vždy podle rozsahu projektu.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Základ</div>
+        <div class="price-amount">9 900 Kč</div>
+        <ul class="price-features">
+          <li>1–3 stránky</li>
+          <li>Responzivní design</li>
+          <li>Základní SEO nastavení</li>
+          <li>1 kolo úprav</li>
+        </ul>
+        <a href="#contact" class="price-btn">Vybrat balíček</a>
+      </div>
+      <div class="price-card popular">
+        <div class="price-badge">Nejoblíbenější</div>
+        <div class="price-name">Profesionál</div>
+        <div class="price-amount">19 900 Kč</div>
+        <ul class="price-features">
+          <li>Až 7 stránek</li>
+          <li>Kompletní design systém</li>
+          <li>CMS a napojení formulářů</li>
+          <li>3 kola úprav</li>
+        </ul>
+        <a href="#contact" class="price-btn">Vybrat balíček</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Na míru</div>
+        <div class="price-amount">Individuálně</div>
+        <ul class="price-features">
+          <li>E-shop / webová aplikace</li>
+          <li>Vlastní funkcionalita</li>
+          <li>Dlouhodobá spolupráce</li>
+          <li>Neomezená kola úprav</li>
+        </ul>
+        <a href="#contact" class="price-btn">Domluvit nabídku</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section wrap" id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="text-align:center;">Pojďme na tom zapracovat</div>
+    <h2 class="contact-title">Máte nápad na web?<br/><span class="hl-coral">Pojďme ho společně zrealizovat.</span></h2>
+    <p class="contact-sub">Napište mi pár řádků o svém projektu a ozvu se do 24 hodin s návrhem dalšího postupu.</p>
+    <a href="mailto:nablbosti67@seznam.cz" class="btn-primary">✉ nablbosti67@seznam.cz</a>
+    <div class="contact-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="https://www.instagram.com/andris_dominik">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="logo">Dominik<span style="color:var(--coral);">.</span></div>
+      <ul class="footer-nav">
+        <li><a href="#home">Domů</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Ceník</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dominik. Všechna práva vyhrazena.</p>
+      <p>Vytvořeno s ♥ v Praze</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
