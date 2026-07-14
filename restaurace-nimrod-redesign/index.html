@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurace Nimrod — Vratimov | Rodinné a firemní oslavy, speciality ze zvěřiny</title>
+<meta name="description" content="Restaurace Nimrod ve Vratimově — rodinná restaurace se salónkem a letní zahrádkou. Speciality ze zvěřiny, denní menu, rodinné a firemní oslavy.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ikony (SVG sprite) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-antler" viewBox="0 0 24 24"><path d="M12 21V11M12 11c0-2 1.2-3 2-4.5.6-1.1.5-2.3 0-3.5M12 11c0-2-1.2-3-2-4.5-.6-1.1-.5-2.3 0-3.5M14 6.5c.8.3 1.8.1 2.3-.7M14 4c.9 0 1.6-.4 2-1.2M10 6.5c-.8.3-1.8.1-2.3-.7M10 4c-.9 0-1.6-.4-2-1.2M12 11c1 1.3 2.7 1.6 4 1M12 11c-1 1.3-2.7 1.6-4 1"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8c1.3 2.6 3.5 4.8 6.1 6.1l2-2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.8c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3c-2.2 0-4 1.8-4 4V12H8v3.5h2V22h3.5v-6.5H16l.5-3.5h-3V9.8c0-.5.4-.8.9-.8z"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M7 3v7M5 3v4a2 2 0 0 0 4 0V3M7 10v11M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></symbol>
+  <symbol id="i-wine" viewBox="0 0 24 24"><path d="M7 3h10c0 4-1 7-5 7s-5-3-5-7zM12 10v7M8 21h8"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 8a2 2 0 0 0 0 4v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3a2 2 0 0 1 0-4V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3z"/><path d="M12 5v14" stroke-dasharray="2 3"/></symbol>
+  <symbol id="i-deer-head" viewBox="0 0 24 24"><path d="M12 15c-3 0-5.5-2-5.5-5S8 4 9.5 4c.8 0 1 1 2.5 1s1.7-1 2.5-1C16 4 17.5 7 17.5 10s-2.5 5-5.5 5zM12 15v6M9 21h6M6.5 4C5 3 4 1.5 4 1M17.5 4c1.5-1 2.5-2.5 2.5-3M6.5 4c1 .5 1.5 1.5 1 3M17.5 4c-1 .5-1.5 1.5-1 3"/></symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-deer-head"/></svg></span>
+      <span class="brand-text"><strong>Nimrod</strong><span>Restaurace &middot; Vratimov</span></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#o-nas">O nás</a>
+      <a href="#jidelni-listek">Jídelní lístek</a>
+      <a href="#napojovy-listek">Nápoje</a>
+      <a href="#galerie">Fotogalerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+420596732005">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <span>+420 596 732 005</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow"><span class="rule"></span>Vratimov &middot; Rodinná restaurace od roku 1990</span>
+      <h1>Restaurace Nimrod</h1>
+      <p class="lede">
+        Připravili jsme pro Vás možnost nahlédnout do našeho aktuálního jídelního a nápojového lístku
+        i prohlédnout si fotografie interiéru. Restaurace, salónek a letní zahrádka pro rodinné
+        a firemní oslavy — se specialitami ze zvěřiny.
+      </p>
+      <div class="hero-actions">
+        <a href="#jidelni-listek" class="btn btn-primary">
+          <svg class="icon"><use href="#i-utensils"/></svg>
+          Zobrazit jídelní lístek
+        </a>
+        <a href="tel:+420596732005" class="btn-ghost-text">Zavolejte nám: +420 596 732 005 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= O NÁS ================= -->
+<section class="about" id="o-nas">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">Vítejte u nás</span>
+      <h2>Restaurace, salónek a zahrádka pro každou příležitost</h2>
+      <p>
+        Vážení hosté, vítáme Vás na stránkách restaurace Nimrod a přejeme Vám, abyste se v tomto
+        virtuálním prostoru cítili stejně dobře jako v restauraci skutečné.
+      </p>
+      <p class="signature">
+        „Své postřehy nám, prosím, sdělte — Vaše názory jsou nám vodítkem ke stále lepším službám.“
+        <br>— Roman Gelner, majitel firmy
+      </p>
+      <ul class="feature-list">
+        <li><svg class="icon"><use href="#i-check"/></svg> Restaurace, salónek, zahrádka</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Firemní večírky, rodinné akce</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Speciality ze zvěřiny, denní menu</li>
+      </ul>
+    </div>
+    <div class="about-photo">
+      <img src="images/exterier-1.jpg" alt="Restaurace Nimrod — pohled na budovu ve Vratimově">
+    </div>
+  </div>
+</section>
+
+<!-- ================= HODINY & PLATBY ================= -->
+<section class="info-strip">
+  <div class="container info-grid">
+    <div class="info-card">
+      <h3><svg class="icon"><use href="#i-clock"/></svg> Provozní doba</h3>
+      <table class="hours-table">
+        <tr><td>Pondělí</td><td>10:00 — 23:00</td></tr>
+        <tr><td>Úterý</td><td>10:00 — 23:00</td></tr>
+        <tr><td>Středa</td><td>10:00 — 23:00</td></tr>
+        <tr><td>Čtvrtek</td><td>10:00 — 23:00</td></tr>
+        <tr><td>Pátek</td><td>10:00 — 24:00</td></tr>
+        <tr><td>Sobota</td><td>10:00 — 24:00</td></tr>
+        <tr><td>Neděle</td><td>10:00 — 24:00</td></tr>
+      </table>
+      <p class="info-note"><strong>Polední menu</strong> podáváme i o víkendech, denně 10:00 — 14:00.</p>
+    </div>
+    <div class="info-card">
+      <h3><svg class="icon"><use href="#i-card"/></svg> Stravenky a platební karty</h3>
+      <div class="payment-list">
+        <span class="payment-chip"><svg class="icon"><use href="#i-ticket"/></svg> Sodexo</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-ticket"/></svg> Cheque restaurant</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-ticket"/></svg> Ticket Restaurant</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-card"/></svg> Visa</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-card"/></svg> Diners</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-card"/></svg> Maestro</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-card"/></svg> American Express</span>
+        <span class="payment-chip"><svg class="icon"><use href="#i-card"/></svg> MasterCard</span>
+      </div>
+      <p class="info-note">Naše restaurace sídlí na adrese <strong>Frýdecká 136, Vratimov</strong>, okres Ostrava.<br>
+      IČ: 12662071 &nbsp;·&nbsp; DIČ: CZ6208082287</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JÍDELNÍ LÍSTEK ================= -->
+<section class="menu-section" id="jidelni-listek">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Jídelní lístek</span>
+      <h2>Co u nás ochutnáte</h2>
+      <p>Kompletní nabídka jídel — od studených předkrmů po speciality ze zvěřiny.</p>
+    </div>
+
+    <div class="tabbar" data-tabs="jidlo">
+      <button class="tab-btn is-active" data-tab="jidlo-1">Předkrmy &amp; polévky</button>
+      <button class="tab-btn" data-tab="jidlo-2">Ryby &amp; drůbež</button>
+      <button class="tab-btn" data-tab="jidlo-3">Zvěřina &amp; speciality</button>
+      <button class="tab-btn" data-tab="jidlo-4">Minutky a steaky</button>
+      <button class="tab-btn" data-tab="jidlo-5">Přílohy, saláty &amp; sladké</button>
+    </div>
+
+    <!-- TAB 1: Předkrmy & polévky -->
+    <div class="tab-panel is-active" id="jidlo-1" data-group="jidlo">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Studené předkrmy</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Šunková rolka s křenem</strong></span></div><span class="dish-price">80 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Polévky</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Slepičí vývar s masem a nudlemi</strong></span></div><span class="dish-price">65 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Česnečka Nimrod</strong><small>uzené maso, sýr, vejce</small></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Domácí zelná polévka s uzeným masem</strong></span></div><span class="dish-price">70 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Teplé předkrmy</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Anglická slanina s vejci</strong></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Topinka s lesnickou směsí</strong><small>topinka, směs z vepřového masa, kečup, cibule</small></span></div><span class="dish-price">110 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Topinka s kuřecí směsí</strong><small>topinka, směs z kuřecího masa, sýr, kečup</small></span></div><span class="dish-price">110 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Hotová jídla</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Dle denní nabídky</strong><small>polední menu podáváme denně 10:00–14:00, i o víkendech — aktuální nabídku Vám rádi sdělíme telefonicky</small></span></div></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: Ryby & drůbež -->
+    <div class="tab-panel" id="jidlo-2" data-group="jidlo">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Rybí pokrmy</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Pstruh na žampiónech</strong><small>1 dkg navíc 5 Kč</small></span></div><span class="dish-price">210 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Pstruh pečený na másle</strong><small>1 dkg navíc 5 Kč</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Grilovaný losos s limetkou</strong></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Losos na špenátovém lůžku</strong></span></div><span class="dish-price">270 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Tuňák steak</strong></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Rybí filé na roštu</strong></span></div><span class="dish-price">160 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažené rybí filé</strong></span></div><span class="dish-price">160 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Drůbeží pokrmy</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">Sk.400g</span><span class="dish-name"><strong>Grilovaná kuřecí křidélka</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí prsíčka s ananasem</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Plněná kuřecí prsíčka</strong><small>kuřecí prsíčka, šunka, sýr</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí prsíčka plněná brokolicí</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí prsíčka s chřestem a šunkou</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí medailónky se sýrem</strong><small>kuřecí prsíčka zapečená se žampióny a sýrem</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí steak se šunkou a nivou</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Pikantní kuřecí nudličky</strong><small>kuřecí prsíčka, pórek, kečup</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí nudličky s oříšky</strong><small>kuřecí prsíčka, broskve, lískové oříšky</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí nudličky kari</strong><small>kuřecí prsíčka, solamyl, kari, čínské zelí, smetana</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí prsíčka v sýrovém těstíčku</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kuřecí prsíčka v mandlovém těstíčku</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Královská kuřecí prsíčka smažená</strong><small>kuřecí prsíčka, šunka, hermelín, v trojobale</small></span></div><span class="dish-price">230 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažený kuřecí řízek</strong></span></div><span class="dish-price">180 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažený stehenní řízek</strong></span></div><span class="dish-price">180 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Nakládaný kuřecí steak na grilu</strong><small>kuřecí marinovaná stehna vykostěná</small></span></div><span class="dish-price">180 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Pikantní drůbeží špíz</strong><small>kuřecí stehna vykostěná, marinovaná</small></span></div><span class="dish-price">190 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Zapékaná krůtí prsa</strong><small>krůtí prsa, broskev, šunka, zapékané se sýrem</small></span></div><span class="dish-price">200 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Telecí maso</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Telecí medailónky Alexandra</strong><small>telecí kýta, holandská omáčka, bílé víno, žampióny</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Telecí medailónky se sýrem</strong><small>telecí kýta zapečená s uzeným sýrem</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Zapékaný telecí řízek</strong><small>telecí kýta, šunka, chřest, zapečené se sýrem</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Vídeňský telecí řízek</strong><small>telecí kýta smažená v trojobale</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Telecí ražničí</strong><small>telecí kýta, slanina, cibule</small></span></div><span class="dish-price">260 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 3: Zvěřina & speciality -->
+    <div class="tab-panel" id="jidlo-3" data-group="jidlo">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Zvěřina</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Srnčí medailónky na víně</strong><small>srnčí kýta, šťáva, červené víno</small></span></div><span class="dish-price">270 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažený srnčí řízek</strong></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Kančí medailónky se šípkovou omáčkou</strong></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">210g</span><span class="dish-name"><strong>Zvěřinový talíř s brusinkami</strong><small>srnčí, kančí, jelení kýta, brusinky</small></span></div><span class="dish-price">290 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Lesnická směs</strong><small>jelení kýta, srnčí kýta, kančí kýta, anglická slanina, pórek, brusinky</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Zvěřinový špíz</strong><small>jelení kýta, anglická slanina, hořčice, cibule</small></span></div><span class="dish-price">280 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Jelení medailónky s bylinkovým máslem</strong></span></div><span class="dish-price">260 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Speciality</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">400g</span><span class="dish-name"><strong>Pečené kachní stehno, kyselé zelí, bramb. knedlík</strong></span></div><span class="dish-price">280 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">250g</span><span class="dish-name"><strong>Smažené závitky se sýrem</strong><small>vepřová kýta, kuřecí prsíčka, poličan, anglická slanina, sýr</small></span></div><span class="dish-price">240 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřový steak s pepřovou omáčkou</strong><small>panenská svíčková, pepřová omáčka</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Zbojnické řezy</strong><small>vepřová kýta, pikantní šťáva, sázená vejce</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Biftečky pana domácího</strong><small>100g hovězí svíčková, 100g vepřová panenka, pepř. omáčka</small></span></div><span class="dish-price">300 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">210g</span><span class="dish-name"><strong>Grilovaný talíř</strong><small>hovězí roštěná, vepřová kýta, kuřecí prsa, anglická slanina</small></span></div><span class="dish-price">230 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">210g</span><span class="dish-name"><strong>Gril MIX s bylinkovým máslem</strong><small>hovězí svíčková, vepřová panenka, kuřecí prsa</small></span></div><span class="dish-price">300 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřová panenka v tyrolské šunce s rozmarýnem</strong></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Svíčkové nudličky pikant</strong><small>hovězí svíčková, kapie, pórek, chilli</small></span></div><span class="dish-price">340 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Smažené býčí žlázy</strong></span></div><span class="dish-price">190 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Minutky z vepřového masa</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřové medailónky Quattro</strong><small>vepřová panenka zapečená se 4 druhy sýra</small></span></div><span class="dish-price">270 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Vepřový steak Metro</strong><small>vepřová kýta, šunka, broskev, zapečené se sýrem</small></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Hospodářův řízek</strong><small>vepřová kýta, bramborové placky, zakysaná smetana, sýr</small></span></div><span class="dish-price">230 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Vepřová panenka na jemné kari omáčce</strong></span></div><span class="dish-price">230 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Špikovaná panenská svíčková</strong><small>prošpikovaná anglickou slaninou</small></span></div><span class="dish-price">270 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Plněná vepřová panenka</strong><small>česnek, kapie, žampióny, šunka, anglická slanina, okurek</small></span></div><span class="dish-price">275 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažený řízek z panenské svíčkové</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažená medvědí tlapka</strong><small>vepřová kýta, anglická slanina, šunka, sýr, v trojobale</small></span></div><span class="dish-price">230 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Slezský řízek z panenské svíčkové</strong><small>v bramborovém těstě</small></span></div><span class="dish-price">245 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřový kotlet s nivovou omáčkou</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřový kotlet po selsku</strong><small>anglická slanina, zelí</small></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vepřový kotlet se šunkou a vejci</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Ohnivý vepřový kotlet</strong><small>marinovaný v pikantní omáčce</small></span></div><span class="dish-price">210 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Marinovaný steak z vepřové krkovičky</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažená vepřová krkovička</strong></span></div><span class="dish-price">200 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 4: Minutky a steaky -->
+    <div class="tab-panel" id="jidlo-4" data-group="jidlo">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Minutky z hovězího masa</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">300g</span><span class="dish-name"><strong>Biftek s bylinkovým máslem</strong></span></div><span class="dish-price">500 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">300g</span><span class="dish-name"><strong>Pfeffer steak</strong><small>hovězí svíčková, zelený pepř</small></span></div><span class="dish-price">500 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Biftek s vejcem</strong></span></div><span class="dish-price">300 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Tatarský biftek, 2 ks topinka</strong></span></div><span class="dish-price">400 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Svíčkové řezy se šunkou a vejcem</strong></span></div><span class="dish-price">300 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Francouzská svíčková</strong><small>hermelín, žampióny</small></span></div><span class="dish-price">340 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Špíz ze svíčkové</strong><small>anglická slanina, hořčice, cibule</small></span></div><span class="dish-price">320 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Židovský smažený řízek</strong><small>smažená hovězí svíčková, česnek</small></span></div><span class="dish-price">310 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Reamsteak s bylinkovým máslem</strong><small>hovězí roštěná, steakové koření</small></span></div><span class="dish-price">290 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Vídeňská roštěná</strong><small>smažená cibule</small></span></div><span class="dish-price">260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Roštěná zapečená s hermelínem</strong></span></div><span class="dish-price">270 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Roštěná se šunkou a vejci</strong></span></div><span class="dish-price">250 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Těstoviny</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Penne s kuřecím masem a žampiónovou omáčkou</strong></span></div><span class="dish-price">210 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Zapékané penne s krůtím masem a brokolicí</strong><small>krůtí prsa, brokolice, sýr, smetana</small></span></div><span class="dish-price">210 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Bezmasá jídla</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Smažený hermelín</strong></span></div><span class="dish-price">180 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Hermelín v bramborovém těstě</strong></span></div><span class="dish-price">200 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Smažený sýr</strong></span></div><span class="dish-price">160 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Smažený sýrový talíř</strong><small>niva, hermelín, eidam</small></span></div><span class="dish-price">180 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Smažený zeleninový talíř</strong><small>brokolice, květák, žampióny, v trojobale</small></span></div><span class="dish-price">180 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Dětská jídla</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Kuřecí prsa na másle, ½ vařený brambor</strong></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Mickey Mouse, ½ vařený brambor</strong><small>kuřecí prsa smažená v trojobale, ovocná obloha</small></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Smažený sýr, ½ hranolky</strong></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Těstoviny s rajčatovou omáčkou a sýrem</strong></span></div><span class="dish-price">100 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 5: Přílohy, saláty & sladké -->
+    <div class="tab-panel" id="jidlo-5" data-group="jidlo">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Zeleninové saláty Nimrod</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">300/150g</span><span class="dish-name"><strong>Čerstvý salát s lososem a olivami</strong></span></div><span class="dish-price">250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">300/150g</span><span class="dish-name"><strong>Čerstvý salát s kuřecími kousky a bazalkou</strong></span></div><span class="dish-price">220 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Saláty</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Zelný salát</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Šopský salát</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Řecký salát</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Okurkový salát</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Okurkový salát se smetanou</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Rajčatový salát</strong></span></div><span class="dish-price">50 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Přílohy</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">250g</span><span class="dish-name"><strong>Grilovaná zelenina</strong></span></div><span class="dish-price">75 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">250g</span><span class="dish-name"><strong>Dušená zelenina na másle</strong></span></div><span class="dish-price">75 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Vařený brambor s máslem</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Šťouchaný brambor s cibulkou</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Opékaný brambor</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Americký brambor</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Bramborové krokety</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Bramborové hranolky</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Steakové hranolky</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Bramborové plátky</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Bramborové placky</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">200g</span><span class="dish-name"><strong>Bramborový knedlík</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">160g</span><span class="dish-name"><strong>Houskový knedlík</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Dušená rýže</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Šunková rýže</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Tatarská omáčka</strong></span></div><span class="dish-price">30 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Ďábelská omáčka</strong></span></div><span class="dish-price">30 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Kečup</strong></span></div><span class="dish-price">30 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Chléb</strong></span></div><span class="dish-price">8 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">80g</span><span class="dish-name"><strong>Toasty s bylinkami</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">50g</span><span class="dish-name"><strong>Okurky sterilované</strong></span></div><span class="dish-price">20 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Zeleninová obloha</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Menu box</strong></span></div><span class="dish-price">10 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Moučníky</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">300g</span><span class="dish-name"><strong>Tvarohové knedlíky s ovocem</strong></span></div><span class="dish-price">100 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">125g</span><span class="dish-name"><strong>Palačinky s malinami a vanilkovou zmrzlinou</strong></span></div><span class="dish-price">145 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Malakov se šlehačkou</strong></span></div><span class="dish-price">80 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Banán v čokoládě se šlehačkou</strong></span></div><span class="dish-price">80 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">70g</span><span class="dish-name"><strong>Tiramisu se šlehačkou</strong></span></div><span class="dish-price">80 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Marlenka, medový dort</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Marlenka, mléčně kakaový dort</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">100g</span><span class="dish-name"><strong>Višňový dort se šlehačkou</strong></span></div><span class="dish-price">85 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Poháry &amp; kompoty</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Pohár NIMROD</strong><small>jahody, broskve, ananas, zmrzlina, šlehačka, griotka</small></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Teplé maliny s vanilkovou zmrzlinou a šlehačkou</strong></span></div><span class="dish-price">120 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">120g</span><span class="dish-name"><strong>Banánová bomba</strong><small>teplý banán, čokoláda, zmrzlina, šlehačka</small></span></div><span class="dish-price">90 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Jahody se šlehačkou</strong></span></div><span class="dish-price">80 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Zmrzlina (1 kopeček)</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">40g</span><span class="dish-name"><strong>Šlehačka</strong></span></div><span class="dish-price">20 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Jahodový kompot</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">150g</span><span class="dish-name"><strong>Broskvový kompot</strong></span></div><span class="dish-price">40 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= NÁPOJOVÝ LÍSTEK ================= -->
+<section class="menu-section" style="background:var(--cream)" id="napojovy-listek">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Nápojový lístek</span>
+      <h2>Na zdraví i na žízeň</h2>
+      <p>Od nealkoholických nápojů přes vína ze Znovína po lihoviny a teplé nápoje.</p>
+    </div>
+
+    <div class="tabbar" data-tabs="napoje">
+      <button class="tab-btn is-active" data-tab="napoj-1">Nealko &amp; pivo</button>
+      <button class="tab-btn" data-tab="napoj-2">Vína &amp; sekty</button>
+      <button class="tab-btn" data-tab="napoj-3">Lihoviny &amp; likéry</button>
+      <button class="tab-btn" data-tab="napoj-4">Teplé nápoje</button>
+    </div>
+
+    <!-- Nealko & pivo -->
+    <div class="tab-panel is-active" id="napoj-1" data-group="napoje">
+      <div class="accordion">
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Nealkoholické nápoje</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,10l</span><span class="dish-name"><strong>Kofola</strong></span></div><span class="dish-price">10 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Coca-Cola</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Coca-Cola Light</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Fanta</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Sprite</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,25l</span><span class="dish-name"><strong>Cappy</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,25l</span><span class="dish-name"><strong>Tonic</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,25l</span><span class="dish-name"><strong>Bonaqua</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,33l</span><span class="dish-name"><strong>Americká limonáda</strong></span></div><span class="dish-price">65 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">1 L</span><span class="dish-name"><strong>Džbán vody s citrónem</strong></span></div><span class="dish-price">35 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Pivo</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,50l</span><span class="dish-name"><strong>Pilsner Urquell 12°</strong></span></div><span class="dish-price">54 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,30l</span><span class="dish-name"><strong>Pilsner Urquell 12°</strong></span></div><span class="dish-price">33 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,50l</span><span class="dish-name"><strong>Radegast 12°</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,30l</span><span class="dish-name"><strong>Radegast 12°</strong></span></div><span class="dish-price">27 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,50l</span><span class="dish-name"><strong>Velkopopovický Kozel tmavý láhvový</strong></span></div><span class="dish-price">44 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,50l</span><span class="dish-name"><strong>Nealkoholické pivo Birell</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,30l</span><span class="dish-name"><strong>Nealkoholické pivo Birell</strong></span></div><span class="dish-price">27 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,50l</span><span class="dish-name"><strong>Ochucený ovocný Birell, plech</strong></span></div><span class="dish-price">44 Kč</span></div>
+          </div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vína & sekty -->
+    <div class="tab-panel" id="napoj-2" data-group="napoje">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Aperitivy (1 dcl)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Campari bitter</strong></span></div><span class="dish-price">85 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Cinzano bianco</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Cinzano rosso</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Cinzano bitter</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Martini bianco</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Martini dry s olivou</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Martini rosso</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Portské červené</strong></span></div><span class="dish-price">90 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Bílá vína Znovín</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Müller Thurgau</strong></span></div><span class="dish-price">2 dcl 50 Kč / 1 l 250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Veltlínské zelené</strong></span></div><span class="dish-price">2 dcl 50 Kč / 1 l 250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Sauvignon</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Tramín</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Veltlínské zelené</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Rulandské bílé</strong></span></div><span class="dish-price">220 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Muškát moravský</strong></span></div><span class="dish-price">220 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Bílá vína z Templářských sklepů (0,70l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Sauvignon</strong></span></div><span class="dish-price">250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Ryzlink rýnský</strong></span></div><span class="dish-price">250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Tramín červený</strong></span></div><span class="dish-price">250 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Červená vína Znovín</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Svatovavřinecké</strong></span></div><span class="dish-price">2 dcl 52 Kč / 1 l 260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Frankovka</strong></span></div><span class="dish-price">2 dcl 52 Kč / 1 l 260 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Rulandské modré</strong></span></div><span class="dish-price">240 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Cabernet Sauvignon</strong></span></div><span class="dish-price">240 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Svatovavřinecké</strong></span></div><span class="dish-price">240 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-weight">0,70l</span><span class="dish-name"><strong>Frankovka</strong></span></div><span class="dish-price">240 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Červená vína z Templářských sklepů (0,70l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Frankovka</strong></span></div><span class="dish-price">250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Modrý Portugal</strong></span></div><span class="dish-price">250 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Cabernet Sauvignon</strong></span></div><span class="dish-price">270 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Sekty (0,75l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Bohemia</strong></span></div><span class="dish-price">280 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Bohemia nealkoholický</strong></span></div><span class="dish-price">280 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Dětský sekt</strong></span></div><span class="dish-price">110 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Lihoviny & likéry -->
+    <div class="tab-panel" id="napoj-3" data-group="napoje">
+      <div class="accordion">
+
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Lihoviny (0,04l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Fernet</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Vodka Finská</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Vodka Jelzin</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Borovička Jelínek</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Slivovice Jelínek</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Rum Tuzemský</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Tequila zlatá</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Tequila bílá</strong></span></div><span class="dish-price">70 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Gin Beefeater</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Gin Dry</strong></span></div><span class="dish-price">35 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Likéry (0,04l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Becherovka</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Magister</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Fernet citrus</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Jägermeister</strong></span></div><span class="dish-price">60 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Griotte</strong></span></div><span class="dish-price">30 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Carolans</strong></span></div><span class="dish-price">55 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Koňaky (0,04l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Stará myslivecká</strong></span></div><span class="dish-price">35 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Metaxa ***</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Metaxa *****</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Metaxa *******</strong></span></div><span class="dish-price">90 Kč</span></div>
+          </div></div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger"><span>Bourbony a whiskey (0,04l)</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Four Roses</strong></span></div><span class="dish-price">60 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Jim Beam</strong></span></div><span class="dish-price">60 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Jack Daniel's</strong></span></div><span class="dish-price">80 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Balantine's 6-ti letá</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Johnny Walker</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Grant's</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Tullamore Dew</strong></span></div><span class="dish-price">60 Kč</span></div>
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Teplé nápoje -->
+    <div class="tab-panel" id="napoj-4" data-group="napoje">
+      <div class="accordion">
+        <div class="accordion-item is-open">
+          <button class="accordion-trigger"><span>Teplé nápoje — Káva Piazza Doro</span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="accordion-panel"><div class="accordion-panel-inner"><div class="dish-list">
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Káva espresso, cukr, smetánka</strong></span></div><span class="dish-price">45 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Káva Turecká, cukr</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Cappuccino</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Káva Latte</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Káva Vídeňská, cukr</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Káva Alžírská, cukr</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Horká čokoláda se šlehačkou</strong></span></div><span class="dish-price">55 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Čaj černý s citrónem, cukr</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Čaj ovocný, cukr</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Čaj zelený, cukr</strong></span></div><span class="dish-price">40 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Grog</strong></span></div><span class="dish-price">50 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Vaření vína</strong></span></div><span class="dish-price">6 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Med</strong></span></div><span class="dish-price">6 Kč</span></div>
+            <div class="dish-row"><div class="dish-main"><span class="dish-name"><strong>Řez citrónu</strong></span></div><span class="dish-price">5 Kč</span></div>
+          </div></div></div>
+        </div>
+      </div>
+      <p style="text-align:center; color:var(--ink-soft); margin-top:1.5em; font-style:italic;">Smluvní ceny. Příjemné posezení a dobrou chuť přeje kolektiv Restaurace Nimrod Vratimov.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section class="gallery" id="galerie">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Jak to u nás vypadá</span>
+      <h2>Fotogalerie</h2>
+      <p>Nahlédněte do interiéru, na letní zahrádku i na naše speciality — klikněte na fotografii pro zvětšení.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item big" data-full="images/exterier-2.jpg"><img src="images/exterier-2.jpg" alt="Exteriér restaurace Nimrod"><span class="cap">Exteriér</span></div>
+      <div class="gallery-item" data-full="images/exterier-3.jpg"><img src="images/exterier-3.jpg" alt="Vchod do restaurace Nimrod"><span class="cap">Exteriér</span></div>
+      <div class="gallery-item" data-full="images/zahradka-1.jpg"><img src="images/zahradka-1.jpg" alt="Letní zahrádka restaurace Nimrod"><span class="cap">Letní zahrádka</span></div>
+      <div class="gallery-item" data-full="images/zahradka-2.jpg"><img src="images/zahradka-2.jpg" alt="Posezení na letní zahrádce"><span class="cap">Letní zahrádka</span></div>
+      <div class="gallery-item" data-full="images/jidlo-predkrm.jpg"><img src="images/jidlo-predkrm.jpg" alt="Studený předkrm restaurace Nimrod"><span class="cap">Jídlo</span></div>
+      <div class="gallery-item" data-full="images/jidlo-steak.jpg"><img src="images/jidlo-steak.jpg" alt="Grilovaný steak s přílohou"><span class="cap">Jídlo</span></div>
+      <div class="gallery-item" data-full="images/interier-raut.jpg"><img src="images/interier-raut.jpg" alt="Slavnostní raut v restauraci Nimrod"><span class="cap">Interiér &amp; rauty</span></div>
+      <div class="gallery-item" data-full="images/interier-slavnostni-1.jpg"><img src="images/interier-slavnostni-1.jpg" alt="Slavnostně prostřený salónek"><span class="cap">Salónek</span></div>
+      <div class="gallery-item" data-full="images/slavnostni-tabule-1.jpg"><img src="images/slavnostni-tabule-1.jpg" alt="Slavnostní tabule pro rodinné oslavy"><span class="cap">Slavnostní tabule</span></div>
+      <div class="gallery-item" data-full="images/slavnostni-tabule-2.jpg"><img src="images/slavnostni-tabule-2.jpg" alt="Prostřený stůl pro oslavu"><span class="cap">Slavnostní tabule</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox">
+  <button class="lightbox-close" aria-label="Zavřít"><svg class="icon"><use href="#i-close"/></svg></button>
+  <img src="" alt="">
+</div>
+
+<!-- ================= KONTAKT ================= -->
+<section class="contact" id="kontakt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Najdete nás ve Vratimově</h2>
+      <p>Rezervace míst na telefonu níže — rádi Vám poradíme i s výběrem menu na Vaši oslavu.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-row">
+          <svg class="icon"><use href="#i-pin"/></svg>
+          <div><h4>Restaurace Nimrod</h4><p>Frýdecká 136<br>739 32 Vratimov, okres Ostrava</p></div>
+        </div>
+        <div class="contact-row">
+          <svg class="icon"><use href="#i-phone"/></svg>
+          <div><h4>Rezervace míst</h4><p><a href="tel:+420596732005">+420 596 732 005</a></p></div>
+        </div>
+        <div class="contact-row">
+          <svg class="icon"><use href="#i-fb"/></svg>
+          <div><h4>Sledujte nás</h4><p><a href="https://www.facebook.com/pages/Nimrod/904454462941387" target="_blank" rel="noopener">Restaurace Nimrod na Facebooku</a></p></div>
+        </div>
+        <div class="contact-row">
+          <svg class="icon"><use href="#i-card"/></svg>
+          <div><h4>Fakturační údaje</h4><p>IČ: 12662071<br>DIČ: CZ6208082287</p></div>
+        </div>
+        <p class="sister-note">Navštivte i náš další podnik — <strong>Restaurace U Šodka</strong> ve Vratimově.</p>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2577.557756174374!2d18.311266315797617!3d49.75676444498398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDQ1JzI0LjMiTiAxOMKwMTgnNDguNCJF!5e0!3m2!1scs!2scz!4v1539616038541" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa — Restaurace Nimrod, Vratimov" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2026 Restaurace Nimrod, Vratimov. Všechna práva vyhrazena.</span>
+    <div class="footer-social">
+      <a href="tel:+420596732005" aria-label="Zavolat"><svg class="icon"><use href="#i-phone"/></svg></a>
+      <a href="https://www.facebook.com/pages/Nimrod/904454462941387" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
