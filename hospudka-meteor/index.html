@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hospůdka Meteor — Vratimov</title>
+<meta name="description" content="Hospůdka Meteor ve Vratimově. Kvalitní pivo, příjemná obsluha, terasa, dětské hřiště a parkoviště. Rodinný podnik od roku 2020." />
+<link rel="icon" href="images/logo.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --stout: #1c130d;
+    --stout-2: #251a12;
+    --cream: #f3e9d7;
+    --paper: #faf4e9;
+    --brass: #c8963e;
+    --brass-light: #e0b563;
+    --ale: #a6472a;
+    --ale-dark: #7d3320;
+    --ink: #241a12;
+    --muted: #7a6a58;
+    --line: rgba(200,150,62,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .logo-word { font-family: 'Fraunces', serif; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  section { position: relative; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  ::selection { background: var(--brass); color: var(--stout); }
+
+  /* ── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; height: 82px;
+    background: rgba(28,19,13,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .brand img { height: 64px; width: 64px; border-radius: 50%; border: 2px solid var(--brass); object-fit: cover; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-text .logo-word { color: var(--cream); font-size: 1.55rem; font-weight: 700; letter-spacing: 0.3px; }
+  .brand-text small { color: var(--brass-light); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 34px; list-style: none; }
+  .nav-links a { font-size: 0.92rem; font-weight: 600; text-decoration: none; color: var(--cream); opacity: 0.78; transition: opacity .2s, color .2s; }
+  .nav-links a:hover { opacity: 1; color: var(--brass-light); }
+  .nav-cta {
+    background: var(--brass); color: var(--stout); border: none;
+    padding: 11px 22px; border-radius: 4px; font-size: 0.86rem;
+    font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background .2s, transform .2s;
+    font-family: 'Karla', sans-serif;
+  }
+  .nav-cta:hover { background: var(--brass-light); transform: translateY(-2px); }
+  .nav-toggle { display: none; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero {
+    min-height: 88vh;
+    display: flex; align-items: center;
+    padding: 150px 0 70px;
+    background:
+      linear-gradient(180deg, rgba(20,14,9,0.72) 0%, rgba(20,14,9,0.8) 100%),
+      url('images/photo-1.jpg') center 30%/cover no-repeat;
+    position: relative;
+    border-bottom: 4px solid var(--brass);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 720px; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--brass-light); font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; font-size: 0.78rem; margin-bottom: 22px;
+  }
+  .kicker::before { content: ""; width: 34px; height: 2px; background: var(--brass-light); display: inline-block; }
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 5.2rem); font-weight: 900; color: var(--cream);
+    line-height: 0.98; letter-spacing: -1px;
+  }
+  .hero h1 em { color: var(--brass-light); font-style: normal; }
+  .hero p {
+    margin-top: 26px; font-size: 1.15rem; color: var(--cream); opacity: 0.88;
+    max-width: 540px; line-height: 1.6;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 34px; border-radius: 4px; font-weight: 700; font-size: 0.98rem;
+    text-decoration: none; transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+    font-family: 'Karla', sans-serif;
+  }
+  .btn-primary { background: var(--ale); color: var(--paper); box-shadow: 0 14px 30px -10px rgba(166,71,42,0.6); }
+  .btn-primary:hover { background: var(--ale-dark); transform: translateY(-2px); }
+  .btn-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--cream); font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    padding-bottom: 3px; border-bottom: 1.5px solid rgba(243,233,215,0.45);
+    transition: border-color .2s, color .2s, gap .2s;
+  }
+  .btn-link:hover { color: var(--brass-light); border-color: var(--brass-light); gap: 12px; }
+
+  .hero-stats { display: flex; gap: 34px; margin-top: 48px; }
+  .hero-stats div { padding-left: 16px; border-left: 2px solid var(--brass); }
+  .hero-stats strong { display: block; color: var(--brass-light); font-family: 'Fraunces', serif; font-size: 1.05rem; }
+  .hero-stats span { color: rgba(243,233,215,0.75); font-size: 0.82rem; }
+
+  /* ── SECTION HEADER ──────────────────────────────── */
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-head .kicker { color: var(--ale); }
+  .section-head .kicker::before { background: var(--ale); }
+  .section-head h2 { font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; color: var(--stout); line-height: 1.08; }
+  .section-head p { margin-top: 16px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+
+  /* ── ABOUT / INFO ────────────────────────────────── */
+  .about { padding: 110px 0; background: var(--paper); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-photo { position: relative; }
+  .about-photo img { border-radius: 6px; width: 100%; height: 460px; object-fit: cover; box-shadow: 0 30px 60px -20px rgba(28,19,13,0.35); }
+  .about-photo::after {
+    content: ""; position: absolute; top: 22px; left: 22px; right: -22px; bottom: -22px;
+    border: 2px solid var(--brass); border-radius: 6px; z-index: -1;
+  }
+  .feature-list { list-style: none; margin-top: 34px; display: flex; flex-direction: column; gap: 20px; }
+  .feature-list li { display: flex; gap: 16px; align-items: flex-start; color: var(--ink); font-size: 1rem; }
+  .feature-list .ico {
+    flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--stout); color: var(--brass-light); display: flex; align-items: center; justify-content: center;
+  }
+  .feature-list .ico svg { width: 21px; height: 21px; }
+  .feature-list strong { display: block; font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--stout); margin-bottom: 2px; }
+  .feature-list span { color: var(--muted); font-size: 0.92rem; }
+
+  /* ── MENU ────────────────────────────────────────── */
+  .menu { padding: 110px 0; background: var(--stout); color: var(--cream); position: relative; overflow: hidden; }
+  .menu::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(200,150,62,0.12), transparent 55%);
+  }
+  .menu .section-head { position: relative; z-index: 2; }
+  .menu .section-head .kicker, .menu .section-head .kicker::before { color: var(--brass-light); background: var(--brass-light); }
+  .menu .section-head h2 { color: var(--cream); }
+  .menu .section-head p { color: rgba(243,233,215,0.7); }
+
+  .menu-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+  .menu-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 18px 0; border-bottom: 1px dashed rgba(243,233,215,0.2);
+  }
+  .menu-item .name { font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 600; }
+  .menu-item .name small { display: block; font-family: 'Karla', sans-serif; font-weight: 400; color: rgba(243,233,215,0.55); font-size: 0.82rem; margin-top: 3px; }
+  .menu-item .price { font-weight: 700; color: var(--brass-light); font-size: 1.05rem; white-space: nowrap; padding-left: 20px; }
+  .menu-note { margin-top: 40px; color: rgba(243,233,215,0.6); font-size: 0.9rem; position: relative; z-index: 2; }
+
+  /* ── GALLERY ─────────────────────────────────────── */
+  .gallery { padding: 110px 0; background: var(--paper); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 190px; gap: 14px;
+  }
+  .gallery-grid a { border-radius: 6px; overflow: hidden; display: block; position: relative; }
+  .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .gallery-grid a:hover img { transform: scale(1.08); }
+  .gallery-grid a::after {
+    content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(28,19,13,0.45));
+    opacity: 0; transition: opacity .3s;
+  }
+  .gallery-grid a:hover::after { opacity: 1; }
+  .g-tall { grid-row: span 2; }
+  .g-wide { grid-column: span 2; }
+
+  /* ── CONTACT ─────────────────────────────────────── */
+  .contact { padding: 110px 0 100px; background: var(--stout-2); color: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 70px; }
+  .contact .section-head .kicker, .contact .section-head .kicker::before { color: var(--brass-light); background: var(--brass-light); }
+  .contact .section-head h2 { color: var(--cream); }
+  .contact .section-head p { color: rgba(243,233,215,0.7); }
+
+  .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 10px; }
+  .info-card {
+    background: rgba(243,233,215,0.05); border: 1px solid rgba(243,233,215,0.12);
+    border-radius: 8px; padding: 26px;
+  }
+  .info-card h3 {
+    font-family: 'Karla', sans-serif; text-transform: uppercase; letter-spacing: 1.5px;
+    font-size: 0.78rem; color: var(--brass-light); font-weight: 700; margin-bottom: 12px;
+  }
+  .info-card p { font-size: 0.98rem; line-height: 1.7; color: rgba(243,233,215,0.9); }
+  .info-card a { text-decoration: none; color: rgba(243,233,215,0.9); border-bottom: 1px solid rgba(200,150,62,0.5); }
+  .info-card a:hover { color: var(--brass-light); }
+
+  form.contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .contact-form input, .contact-form textarea {
+    background: rgba(243,233,215,0.06); border: 1px solid rgba(243,233,215,0.18);
+    border-radius: 6px; padding: 15px 16px; color: var(--cream); font-family: 'Karla', sans-serif; font-size: 0.95rem;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(243,233,215,0.4); }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+  .contact-form button { align-self: flex-start; }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer {
+    background: var(--stout); color: rgba(243,233,215,0.55);
+    padding: 30px 0; text-align: center; font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+  footer strong { color: var(--brass-light); }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-photo { order: -1; }
+    .about-photo::after { display: none; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .g-wide { grid-column: span 2; }
+    .info-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .hero { padding-top: 120px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .btn { width: 100%; justify-content: center; }
+    .hero-stats { flex-wrap: wrap; row-gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">
+    <img src="images/logo.png" alt="Hospůdka Meteor logo" />
+    <span class="brand-text">
+      <span class="logo-word">Meteor</span>
+      <small>Hospůdka · Vratimov</small>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#o-nas">O nás</a></li>
+    <li><a href="#nabidka">Nabídka</a></li>
+    <li><a href="#galerie">Fotogalerie</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+420777874255">777 874 255</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="kicker">Vratimov · od roku 2020</span>
+    <h1>Pivo, klídek<br>a <em>dobrá parta.</em></h1>
+    <p>Rodinná hospůdka s kvalitním pivem a příjemnou obsluhou. Terasa, dětské hřiště i parkoviště — místo, kam se rádi vracíte s rodinou nebo na firemní akci.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#nabidka">Zobrazit nabídku</a>
+      <a class="btn-link" href="#kontakt">Kde nás najdete →</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>14:00 – 0:00</strong><span>Po–Čt &amp; Ne</span></div>
+      <div><strong>14:00 – 1:00</strong><span>Pá–So</span></div>
+      <div><strong>U Stadionu 1465</strong><span>Vratimov</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="o-nas">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head">
+        <span class="kicker">O nás</span>
+        <h2>Rodinný podnik se srdcem na dlani</h2>
+        <p>Hospůdku Meteor jsme otevřeli 22. 8. 2020 s jednoduchým cílem — nalévat kvalitní pivo a starat se o hosty tak, aby se k nám rádi vraceli. Ať přijdete na rychlé pivo po práci, nebo si u nás chcete zamluvit firemní či rodinnou akci, uděláme vše pro to, abyste se cítili dobře.</p>
+      </div>
+      <ul class="feature-list">
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h10v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8Z"/><path d="M15 10h1.5A1.5 1.5 0 0 1 18 11.5v3a1.5 1.5 0 0 1-1.5 1.5H15"/><path d="M5 8V6.5A1.5 1.5 0 0 1 6.5 5h7A1.5 1.5 0 0 1 15 6.5V8"/><path d="M8 5V3.5M11 5V3.5"/></svg></span>
+          <div><strong>Kvalitní pivo</strong><span>Točené i lahvové, vždy dobře ošetřené a v ideální teplotě.</span></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 7.5 10h2.2L6 16.5h5.2V21h1.6v-4.5H18l-3.7-6.5h2.2L12 3Z"/></svg></span>
+          <div><strong>Terasa</strong><span>Posezení venku za pěkného počasí, ideální pro celou partu.</span></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4v16"/><path d="M21 4v16"/><path d="M3 4h18"/><path d="M9 4v7"/><path d="M15 4v7"/><path d="M9 11h6"/></svg></span>
+          <div><strong>Dětské hřiště</strong><span>Rodiče v klidu u piva, děti si hrají hned vedle.</span></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5 6.4 7A2 2 0 0 1 8.3 5.5h7.4A2 2 0 0 1 17.6 7l1.4 4.5"/><rect x="3" y="11.5" width="18" height="6" rx="2"/><circle cx="7.5" cy="17.5" r="1.3"/><circle cx="16.5" cy="17.5" r="1.3"/></svg></span>
+          <div><strong>Parkoviště</strong><span>Pohodlné parkování přímo u podniku.</span></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17"/><path d="M8 3v3.5M16 3v3.5"/><path d="M8.5 14l2.2 2.2L15.5 12"/></svg></span>
+          <div><strong>Akce na míru</strong><span>Prostory pro firemní večírky i rodinné oslavy.</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="about-photo">
+      <img src="images/photo-6.jpg" alt="Interiér hospůdky Meteor" />
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="nabidka">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Naše nabídka</span>
+      <h2>Něco k pivu</h2>
+      <p>Klasika, na kterou se dá spolehnout. K vidění je jen výběr — celé jídelní i nápojové menu najdete přímo v podniku.</p>
+    </div>
+    <div class="menu-grid">
+      <div>
+        <div class="menu-item"><span class="name">Smažený sýr se steakovými hranolkami</span><span class="price">170 Kč</span></div>
+        <div class="menu-item"><span class="name">Smažené tvarůžky</span><span class="price">170 Kč</span></div>
+        <div class="menu-item"><span class="name">Tvarůžkový tataráček</span><span class="price">150 Kč</span></div>
+        <div class="menu-item"><span class="name">Pečená žebra</span><span class="price">175 Kč</span></div>
+      </div>
+      <div>
+        <div class="menu-item"><span class="name">Steakové hranolky</span><span class="price">60 Kč</span></div>
+        <div class="menu-item"><span class="name">Bramborové dukátky</span><span class="price">60 Kč</span></div>
+        <div class="menu-item"><span class="name">Nakládaný camembert</span><span class="price">60 Kč</span></div>
+        <div class="menu-item"><span class="name">Utopenec</span><span class="price">60 Kč</span></div>
+      </div>
+    </div>
+    <p class="menu-note">Platba hotově i kartou.</p>
+  </div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Fotogalerie</span>
+      <h2>Podívejte se k nám</h2>
+      <p>Pár momentek z hospůdky — interiér, terasa i akce, které jsme si spolu s hosty užili.</p>
+    </div>
+    <div class="gallery-grid">
+      <a href="images/photo-1.jpg" target="_blank" class="g-tall"><img src="images/photo-1.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-2.jpg" target="_blank"><img src="images/photo-2.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-3.jpg" target="_blank"><img src="images/photo-3.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-7.jpg" target="_blank" class="g-tall"><img src="images/photo-7.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-4.jpg" target="_blank"><img src="images/photo-4.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-5.jpg" target="_blank"><img src="images/photo-5.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-8.jpg" target="_blank" class="g-wide"><img src="images/photo-8.jpg" alt="Hospůdka Meteor" /></a>
+      <a href="images/photo-9.jpg" target="_blank"><img src="images/photo-9.jpg" alt="Hospůdka Meteor" /></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head">
+        <span class="kicker">Kontakt</span>
+        <h2>Kde nás najdete</h2>
+        <p>Zastavte se na pivo, nebo nám napište pár řádků — ozveme se zpátky.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <h3>Adresa</h3>
+          <p>U Stadionu 1465<br>Vratimov 739 32</p>
+        </div>
+        <div class="info-card">
+          <h3>Kontakt</h3>
+          <p><a href="tel:+420777874255">777 874 255</a><br><a href="mailto:hmeteor@seznam.cz">hmeteor@seznam.cz</a></p>
+        </div>
+        <div class="info-card">
+          <h3>Otevírací doba</h3>
+          <p>Po–Čt: 14:00–0:00<br>Pá–So: 14:00–1:00<br>Ne: 14:00–0:00</p>
+        </div>
+        <div class="info-card">
+          <h3>Platby</h3>
+          <p>Hotově i kartou</p>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Díky za zprávu! Formulář zatím není napojen na e-mail.');">
+      <div class="section-head" style="margin-bottom:8px;">
+        <span class="kicker">Napište nám</span>
+      </div>
+      <input type="text" placeholder="Vaše jméno" required />
+      <input type="email" placeholder="Váš e-mail" required />
+      <textarea placeholder="Vaše zpráva"></textarea>
+      <button class="btn btn-primary" type="submit">Odeslat zprávu</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 <strong>Hospůdka Meteor</strong> · U Stadionu 1465, Vratimov · Všechna práva vyhrazena
+  </div>
+</footer>
+
+</body>
+</html>
